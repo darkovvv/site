@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "POTAPOV",
-    "build": "1.0",
+    "build": "react-scripts",
     "start": "1.0a"
   },
   "dependencies": {
