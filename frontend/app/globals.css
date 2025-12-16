@@ -228,3 +228,9 @@ img, video {
   height: auto;
   display: block;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
