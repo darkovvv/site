@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.header {
+  background: #ffffff;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.container {
+  padding: 20px;
+  min-height: 70vh;
+}
+
+.footer {
+  background: #ffffff;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.socials span {
+  margin: 0 10px;
+}
