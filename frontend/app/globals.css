@@ -1,6 +1,6 @@
-/* =========================
-   RESET + BASE
-========================= */
+/* ===============================
+   RESET
+================================ */
 
 *,
 *::before,
@@ -11,95 +11,113 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #0a0a0a;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
 }
 
-/* =========================
-   LAYOUT
-========================= */
+/* ===============================
+   GLOBAL LAYOUT
+================================ */
 
 main {
   flex: 1;
 }
 
+/* КЛЮЧЕВОЙ контейнер */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
+/* Большие безопасные отступы */
 section {
-  padding: 64px 0;
+  padding: 96px 0;
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding: 72px 0;
+  }
 }
 
 @media (max-width: 768px) {
-  section {
-    padding: 40px 0;
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
+  section {
+    padding: 48px 0;
   }
 }
 
-/* =========================
+/* ===============================
    HEADER
-========================= */
+================================ */
 
 header {
   border-bottom: 1px solid #e5e5e5;
-  background: #ffffff;
+  background: #fff;
 }
 
 .header-inner {
-  height: 72px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ===============================
+   NAVIGATION
+================================ */
 
-footer {
-  border-top: 1px solid #e5e5e5;
-  padding: 32px 0;
-  background: #ffffff;
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+nav a {
   font-size: 14px;
-  color: #666666;
+  font-weight: 500;
+  color: #0a0a0a;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
 }
 
-/* =========================
-   TYPOGRAPHY
-========================= */
+nav a:hover {
+  opacity: 1;
+}
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 16px 0;
+/* ===============================
+   TYPOGRAPHY
+================================ */
+
+h1, h2, h3, h4 {
+  margin: 0 0 24px 0;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 h1 {
-  font-size: 40px;
-  line-height: 1.2;
+  font-size: 48px;
+  line-height: 1.1;
+  max-width: 720px; /* 🔥 чтобы заголовок не лип к краю */
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 36px;
+  max-width: 680px;
 }
 
 h3 {
@@ -107,130 +125,104 @@ h3 {
 }
 
 p {
-  margin: 0 0 16px 0;
-  color: #444444;
+  margin: 0 0 24px 0;
+  color: #444;
+  max-width: 640px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+/* ===============================
+   BUTTONS — ВЕЗДЕ ОДИН СТИЛЬ
+================================ */
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-button {
-  font-family: inherit;
-  cursor: pointer;
+button,
+.btn {
+  appearance: none;
   border: none;
   background: none;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-.btn {
+/* ОСНОВНАЯ кнопка */
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
-  border-radius: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: #0a0a0a;
+  color: #fff;
   font-size: 14px;
   font-weight: 500;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-/* primary */
-.btn-primary {
-  background: #000000;
-  color: #ffffff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-primary:hover {
-  background: #111111;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* outline */
+/* ВТОРИЧНАЯ */
 .btn-outline {
-  border: 1px solid #000000;
-  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: 1px solid #0a0a0a;
+  color: #0a0a0a;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .btn-outline:hover {
-  background: #000000;
-  color: #ffffff;
+  background: #0a0a0a;
+  color: #fff;
 }
 
-/* =========================
-   CARDS
-========================= */
+/* ===============================
+   SERVICES / CARDS
+================================ */
 
 .card {
+  background: #fff;
   border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  padding: 24px;
-  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* =========================
-   FORMS
-========================= */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #d4d4d4;
+/* кнопка внутри услуг */
+.card .btn {
+  margin-top: 24px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 48px 0;
   font-size: 14px;
-  font-family: inherit;
+  color: #666;
 }
 
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #000000;
-}
+/* ===============================
+   SAFETY FIXES
+================================ */
 
-/* =========================
-   UTILITIES
-========================= */
-
-.text-center {
-  text-align: center;
-}
-
-.mt-0 { margin-top: 0; }
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.mt-40 { margin-top: 40px; }
-
-.mb-0 { margin-bottom: 0; }
-.mb-16 { margin-bottom: 16px; }
-.mb-24 { margin-bottom: 24px; }
-.mb-40 { margin-bottom: 40px; }
-
-/* =========================
-   FIXES (важно)
-========================= */
-
-/* Запрещаем горизонтальный вылет */
 body {
   overflow-x: hidden;
 }
 
-/* Убираем 100vw баги */
-img, video {
+img {
   max-width: 100%;
-  height: auto;
   display: block;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 44px;
 }
